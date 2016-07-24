@@ -23,6 +23,6 @@ A space shooter in 16 gifs
  * 12 - Hearts and game over 
  * 13 - Explosions
  * 14 - Starfield
- * 15 - ?? Map, Enemy spawn, Highscore, Powerups, fire interval etc.
- * 16 - ??
+ * 15 - Fancy random enemy movement and respawn ..?? Map, Enemy spawn, Highscore, Powerups, fire interval etc.
+ * 16 - Start screen, Gameover screen.
 
