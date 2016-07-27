@@ -1,59 +1,358 @@
 <!doctype html>
+
 <head>
 	<meta charset="utf-8">
 	<title>A PICO-8 Spaceshooter in 16 GIFs</title>
-	<style>
-	    img 		{image-rendering: crisp-edges;}
-		.wrapper    {display: flex;  height: 272px; width: 1066px; margin: 0 auto; flex-flow: row wrap;}
-		.box 		{width: 256px; height:256px; margin: auto 4;}
-		.box:hover img{ display: none;   }
-		.col0       { background-color: #000000; }
-		.col1       { background-color: #1D2B53; }
-		.col2       { background-color: #7E2553; }
-		.col3       { background-color: #008751; }
-		.col4       { background-color: #AB5236; }
-		.col5       { background-color: #5F574F; }
-		.col6       { background-color: #C2C3C7; }
-		.col7       { background-color: #FFF1E8; }
-		.col8       { background-color: #FF004D; }
-		.col9       { background-color: #FFA300; }
-		.col10      { background-color: #FFEC27; }
-		.col11      { background-color: #00E436; }
-		.col12      { background-color: #29ADFF; }
-		.col13      { background-color: #83769C; }
-		.col14      { background-color: #FF77A8; }
-		.col15      { background-color: #FFCCAA; }
+	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
+	<script src="gif/out.js"></script>
 
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			font-family: 'Titillium Web', sans-serif;
+		}
+
+		body {
+			background: url("assets/bg.png") repeat;
+		}
+
+		img {
+			image-rendering: crisp-edges;
+		}
+
+		header {
+			margin: 0 auto;
+			width: 1024px;
+			margin-bottom: 24px;
+			margin-top: 20px;
+			box-shadow: 2px 3px 3px grey;
+		}
+
+		header h1 {
+			background-color: #ffffff;
+			padding: 1px;
+			padding-left: 10px;
+			padding-right: 10px;
+			width: 1024px;
+			box-sizing: border-box;
+			font-size: 56px;
+		}
+
+		.wrapper {
+			display: flex;
+			height: 1024px;
+			width: 1024px;
+			margin: 0 auto;
+			flex-flow: row wrap;
+			box-shadow: 2px 3px 3px grey;
+		}
+
+		.box {
+			width: 256px;
+			height: 256px;
+			margin: auto 4;
+			position: relative;
+		}
+
+		.box:hover img {
+			display: none;
+		}
+
+		.box:hover p {
+			display: block;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			font-size: 40px;
+			font-weight: bold;
+			margin: 0;
+			padding: 0;
+		}
+
+		.box p {
+			display: none;
+		}
+
+		.col0 {
+			background-color: #000000;
+			color: #FFF1E8;
+		}
+
+		.col1 {
+			background-color: #1D2B53;
+			color: #FFF1E8;
+		}
+
+		.col2 {
+			background-color: #7E2553;
+			color: #FFF1E8;
+		}
+
+		.col3 {
+			background-color: #008751;
+			color: #FFF1E8;
+		}
+
+		.col4 {
+			background-color: #AB5236;
+			color: #FFF1E8;
+		}
+
+		.col5 {
+			background-color: #5F574F;
+			color: #FFF1E8;
+		}
+
+		.col6 {
+			background-color: #C2C3C7;
+			color: #000000;
+		}
+
+		.col7 {
+			background-color: #FFF1E8;
+			color: #000000;
+		}
+
+		.col8 {
+			background-color: #FF004D;
+			color: #000000;
+		}
+
+		.col9 {
+			background-color: #FFA300;
+			color: #000000;
+		}
+
+		.col10 {
+			background-color: #FFEC27;
+			color: #000000;
+		}
+
+		.col11 {
+			background-color: #00E436;
+			color: #000000;
+		}
+
+		.col12 {
+			background-color: #29ADFF;
+			color: #000000;
+		}
+
+		.col13 {
+			background-color: #83769C;
+			color: #000000;
+		}
+
+		.col14 {
+			background-color: #FF77A8;
+			color: #000000;
+		}
+
+		.col15 {
+			background-color: #FFCCAA;
+			color: #000000;
+		}
+
+		.content {
+			position: relative;
+			display: block;
+			margin: 0 auto;
+			margin-top: 30px;
+			width: 1024px;
+			height: 50px;
+		}
+
+		.content p {
+			padding: 20px;
+			width: 1024px;
+			margin: 0;
+			box-sizing: border-box;
+			font-size: 24px;
+			background-color: #ffffff;
+			box-shadow: 2px 3px 3px grey;
+		}
+
+		.filler {
+			display: block;
+			width: 100%;
+			height: 200px;
+		}
+
+		.player img {
+			position: absolute;
+			right: 20px;
+			top: 20px;
+			border: 8px solid #29ADFF;
+		}
+
+		a.selected {
+			background-color: lightgrey;
+		}
 	</style>
 </head>
+
 <body>
+	<header>
+		<h1>A PICO-8 Spaceshooter in 16 GIFs</h1>
+	</header>
+
+
+
 	<div class="wrapper">
-		<div class="box col0"><img src="gif/tut_1.gif" alt="Step 1"></div>
+		<div class="box col0">
+			<p>Draw ship on screen.</p>
+			<img src="" id="tut_1" alt="Step 1">
+		</div>
 
-		<div class="box col1"><img src="gif/tut_2.gif" alt="Step 2"></div>
+		<div class="box col1"><img src="" id="tut_2" alt="Step 2">
+			<p>Animate propulsion.</p>
+		</div>
 
-		<div class="box col2"><img src="gif/tut_3.gif" alt="Step 3"></div>
+		<div class="box col2"><img src="" id="tut_3" alt="Step 3">
+			<p>Basic ship movement.</p>
+		</div>
 
-		<div class="box col3"><img src="gif/tut_4.gif" alt="Step 4"></div>
+		<div class="box col3"><img src="" id="tut_4" alt="Step 4">
+			<p>Fire laser bullets.</p>
+		</div>
 
-		<div class="box col4"><img src="gif/tut_5.gif" alt="Step 5"></div>
+		<div class="box col4"><img src="" id="tut_5" alt="Step 5">
+			<p>Remove bullets, if they leave screen.</p>
+		</div>
 
-		<div class="box col5"><img src="gif/tut_6.gif" alt="Step 6"></div>
+		<div class="box col5"><img src="" id="tut_6" alt="Step 6">
+			<p>Draw enemies.</p>
+		</div>
 
-		<div class="box col6"><img src="gif/tut_7.gif" alt="Step 7"></div>
+		<div class="box col6"><img src="" id="tut_7" alt="Step 7">
+			<p>Move enemies.</p>
+		</div>
 
-		<div class="box col7"><img src="gif/tut_8.gif" alt="Step 8"></div>
+		<div class="box col7"><img src="" id="tut_8" alt="Step 8">
+			<p>Points and health.</p>
+		</div>
 
-		<div class="box col8"><img src="gif/tut_9.gif" alt="Step 9"></div>
+		<div class="box col8"><img src="" id="tut_9" alt="Step 9">
+			<p>Collision 1: Clean up and preparation</p>
+		</div>
 
-		<div class="box col9"><img src="gif/tut_10.gif" alt="Step 10"></div>
-		<div class="box col10"><img src="gif/tut_11.gif" alt="Step 11"></div>
-		<div class="box col11"><img src="gif/tut_12.gif" alt="Step 12"></div>
-		<div class="box col12"><img src="gif/tut_13.gif" alt="Step 13"></div>
-		<div class="box col13"><img src="gif/tut_14.gif" alt="Step 14"></div>
-		<div class="box col14"><img src="gif/tut_15.gif" alt="Step 15"></div>
-		<div class="box col15"><img src="gif/tut_16.gif" alt="Step 16"></div>
+		<div class="box col9"><img src="" id="tut_10" alt="Step 10">
+			<p>Collision 2: Define boxes.</p>
+		</div>
+
+		<div class="box col10"><img src="" id="tut_11" alt="Step 11">
+			<p>Collision 3: Collide boxes.</p>
+		</div>
+
+		<div class="box col11"><img src="" id="tut_12" alt="Step 12">
+			<p>Change states.</p>
+		</div>
+
+		<div class="box col12"><img src="" id="tut_13" alt="Step 13">
+			<p>Health,
+				<br> game over, immortality.</p>
+		</div>
+
+		<div class="box col13"><img src="" id="tut_14" alt="Step 14">
+			<p>Explosions.</p>
+		</div>
+
+		<div class="box col14"><img src="" id="tut_15" alt="Step 15">
+			<p>Stars.</p>
+		</div>
+
+		<div class="box col15"><img src="" id="tut_16" alt="Step 16">
+			<p>Enemy movement and respawn.</p>
+		</div>
 	</div>
 
+	<div class="content">
+		<div class="player">
+			<img id="player_img" src="assets/demo.gif">
+		</div>
+
+		<p>
+			<a href="#" onclick="play(this,'tut_1');return false;">01. Draw ship in screen.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_2');return false;">02. Animate propulsion.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_3');return false;">03. Basic ship movement.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_4');return false;">04. Fire laser bullets.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_5');return false;">05. Remove bullets, if they leave screen.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_6');return false;">06. Draw enemies.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_7');return false;">07. Move enemies.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_8');return false;">08. Points and health.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_9');return false;">09. Collision 1: Clean up and preparation.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_10');return false;">10. Collision 2: Define boxes.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_11');return false;">11. Collision 3: Collide boxes.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_12');return false;">12. Change states.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_13');return false;">13. Health, game over, immortality.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_14');return false;">14. Explosions.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_15');return false;">15. Stars.</a>
+			<br>
+			<a href="#" onclick="play(this,'tut_16');return false;">16. Enemy movement and respawn.</a>
+			<br>
+
+			<br> The final cartridge:
+			<br>
+			<img src="assets/shooter.p8.png" alt="final pico-8 cartridge">
+		</p>
+
+
+		<div class="filler">
+		</div>
+	</div>
+
+
 </body>
+<script>
+
+
+
+
+
+	var BASE64_PREFIX = "data:image/gif;base64,";
+
+	function fillGrid() {
+
+		var elms = document.querySelectorAll('.box > img');
+
+		for (var i = 0; i < elms.length; ++i) {
+			var base64 = window[elms[i].id];
+			elms[i].src = "";
+			elms[i].src = BASE64_PREFIX + base64;
+		}
+	}
+	fillGrid();
+
+	function play(a,id) {
+		var elms = document.querySelectorAll('#player_img');
+		elms[0].src = BASE64_PREFIX + window[id];
+		var allLinks = document.querySelectorAll('.content > p > a');
+		for (var i = 0; i < allLinks.length; ++i) {
+			allLinks[i].className="";
+		}
+		a.className="selected";
+	}
+
+
+
+</script>
+
 </html>

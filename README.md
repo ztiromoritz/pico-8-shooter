@@ -9,22 +9,22 @@ A space shooter in 16 gifs
  * create cardridges
 
 # Title
- * 01 - 
- * 02 -
- * 03 -
- * 04 - 
- * 05 - 
- * 06 - 
- * 07 - 
- * 08 - 
- * 09 - Collision 1: Clean up and Preparation
- * 10 - Collision 2: Define Box
- * 11 - Collision 3: Collide Boxes
- * 12 - States 1: Game Over  
- * 13 - States 2: Hearts, Speed, Death, Immortal, Blink  
- * 14 - Explosions 
- * 15 - Starfield: 
- * 16 - Fancy random enemy movement and respawn ..?? Map, Enemy spawn, Highscore, Powerups, fire interval etc.
+ 01. Draw ship on screen.
+ 02. Animate propulsion.
+ 03. Basic ship movement.
+ 04. Fire laser bullets.
+ 05. Remove bullets, if they leave screen.
+ 06. Draw enemies.
+ 07. Move enemies.
+ 08. Points and health.
+ 09. Collision 1: Clean up and preparation.
+ 10. Collision 2: Define boxes.
+ 11. Collision 3: Collide boxes.
+ 12. Change states.   
+ 13. Health, game over, immortality.  
+ 14. Explosions.
+ 15. Stars.
+ 16. Enemy movement and respawn.
 
 
  circ(ex.x,ex.y,ex.t/2,8+ex.t%3)
@@ -32,7 +32,7 @@ A space shooter in 16 gifs
  pset  --  6  ---
 
  respawn
-  + local n = flr(rnd(8))+2 
+  + local n = flr(rnd(8))+2
   + direction = -1 / 1
   + m_y=-20-i*8
 
