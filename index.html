@@ -205,67 +205,67 @@
 	<div class="wrapper">
 		<div class="box col0">
 			<p>Draw ship on screen.</p>
-			<img src="" id="tut_1" alt="Step 1">
+			<img src="gif/tut_1.gif" data-gif="tut_1" alt="Step 1">
 		</div>
 
-		<div class="box col1"><img src="" id="tut_2" alt="Step 2">
+		<div class="box col1"><img src="gif/tut_2.gif" data-gif="tut_2" alt="Step 2">
 			<p>Animate propulsion.</p>
 		</div>
 
-		<div class="box col2"><img src="" id="tut_3" alt="Step 3">
+		<div class="box col2"><img src="gif/tut_3.gif" data-gif="tut_3" alt="Step 3">
 			<p>Basic ship movement.</p>
 		</div>
 
-		<div class="box col3"><img src="" id="tut_4" alt="Step 4">
+		<div class="box col3"><img src="gif/tut_4.gif" data-gif="tut_4" alt="Step 4">
 			<p>Fire laser bullets.</p>
 		</div>
 
-		<div class="box col4"><img src="" id="tut_5" alt="Step 5">
+		<div class="box col4"><img src="gif/tut_5.gif" data-gif="tut_5" alt="Step 5">
 			<p>Remove bullets, if they leave screen.</p>
 		</div>
 
-		<div class="box col5"><img src="" id="tut_6" alt="Step 6">
+		<div class="box col5"><img src="gif/tut_6.gif" data-gif="tut_6" alt="Step 6">
 			<p>Draw enemies.</p>
 		</div>
 
-		<div class="box col6"><img src="" id="tut_7" alt="Step 7">
+		<div class="box col6"><img src="gif/tut_7.gif" data-gif="tut_7" alt="Step 7">
 			<p>Move enemies.</p>
 		</div>
 
-		<div class="box col7"><img src="" id="tut_8" alt="Step 8">
+		<div class="box col7"><img src="gif/tut_8.gif" data-gif="tut_8" alt="Step 8">
 			<p>Points and health.</p>
 		</div>
 
-		<div class="box col8"><img src="" id="tut_9" alt="Step 9">
+		<div class="box col8"><img src="gif/tut_9.gif" data-gif="tut_9" alt="Step 9">
 			<p>Collision 1: Clean up and preparation</p>
 		</div>
 
-		<div class="box col9"><img src="" id="tut_10" alt="Step 10">
+		<div class="box col9"><img src="gif/tut_10.gif" data-gif="tut_10" alt="Step 10">
 			<p>Collision 2: Define boxes.</p>
 		</div>
 
-		<div class="box col10"><img src="" id="tut_11" alt="Step 11">
+		<div class="box col10"><img src="gif/tut_11.gif" data-gif="tut_11" alt="Step 11">
 			<p>Collision 3: Collide boxes.</p>
 		</div>
 
-		<div class="box col11"><img src="" id="tut_12" alt="Step 12">
+		<div class="box col11"><img src="gif/tut_12.gif" data-gif="tut_12" alt="Step 12">
 			<p>Change states.</p>
 		</div>
 
-		<div class="box col12"><img src="" id="tut_13" alt="Step 13">
+		<div class="box col12"><img src="gif/tut_13.gif" data-gif="tut_13" alt="Step 13">
 			<p>Health,
 				<br> game over, immortality.</p>
 		</div>
 
-		<div class="box col13"><img src="" id="tut_14" alt="Step 14">
+		<div class="box col13"><img src="gif/tut_14.gif" data-gif="tut_14" alt="Step 14">
 			<p>Explosions.</p>
 		</div>
 
-		<div class="box col14"><img src="" id="tut_15" alt="Step 15">
+		<div class="box col14"><img src="gif/tut_15.gif" data-gif="tut_15" alt="Step 15">
 			<p>Stars.</p>
 		</div>
 
-		<div class="box col15"><img src="" id="tut_16" alt="Step 16">
+		<div class="box col15"><img src="gif/tut_16.gif" data-gif="tut_16" alt="Step 16">
 			<p>Enemy movement and respawn.</p>
 		</div>
 	</div>
@@ -321,17 +321,13 @@
 
 
 </body>
-<script src="gif/out.js"></script>
+<!--<script src="gif/out.js"></script>-->
 <script>
-
-
-
 
 
 	var BASE64_PREFIX = "data:image/gif;base64,";
 
 	function fillGrid() {
-
 		var elms = document.querySelectorAll('.box > img');
 
 		for (var i = 0; i < elms.length; ++i) {
@@ -340,11 +336,16 @@
 			elms[i].src = BASE64_PREFIX + base64;
 		}
 	}
-	fillGrid();
+	//fillGrid();
 
 	function play(a,id) {
 		var elms = document.querySelectorAll('#player_img');
-		elms[0].src = BASE64_PREFIX + window[id];
+		elms[0].src = "";
+		if(window[id]){
+			elms[0].src = BASE64_PREFIX + window[id];
+		}else{
+			elms[0].src = "gif/"+id+".gif";
+		}
 		var allLinks = document.querySelectorAll('.content > p > a');
 		for (var i = 0; i < allLinks.length; ++i) {
 			allLinks[i].className="";
