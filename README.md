@@ -1,7 +1,7 @@
 # pico-8-shooter
 A pico-8 space shooter in 16 gifs
 
-[DEMO](https://ztiromoritz.github.io/pico-8-shooter/)
+[DEMO](https://ztiromoritz.github.io/pico-8-shooter/) - [BBS Thread](http://www.lexaloffle.com/bbs/?tid=3948) - [MP4 version of the .gifs](https://dl.dropboxusercontent.com/u/127041/ztiromoritz-spaceshooter-16gifs.mp4)
 
 # Title
  01. Draw ship on screen.
