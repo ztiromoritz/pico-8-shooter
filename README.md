@@ -20,3 +20,7 @@ A pico-8 space shooter in 16 gifs
  14. Explosions.
  15. Stars.
  16. Enemy movement and respawn.
+ 17. Check if ship leaves border.
+ 18. Screenshake when hit
+ 19. Title Screen
+ 20. Highscore using cartridge data.
